@@ -1,0 +1,68 @@
+{
+  "name": "tradies",
+  "version": "1.0.0",
+  "description": "Trusted tradies app",
+  "main": "server.js",
+  "engines": {
+    "node": "12.14.1",
+    "npm": "6.13.4"
+  },
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client-install": "npm install --prefix client",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "tonnette",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "nodemon": "^1.18.7"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.662.0",
+    "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
+    "concurrently": "^4.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "gridfs-stream": "^1.1.1",
+    "if-env": "^1.0.4",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "local-storage": "^2.0.0",
+    "materialize-css": "^1.0.0-rc.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.9",
+    "multer": "^1.4.2",
+    "multer-gridfs-storage": "^4.0.3",
+    "multer-s3": "^2.9.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "path": "^0.12.7",
+    "react-bootstrap": "^1.0.1",
+    "react-materialize": "^3.8.10",
+    "validator": "^13.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tonnette/trusted-tradies.git"
+  },
+  "keywords": [
+    "tradies"
+  ],
+  "bugs": {
+    "url": "https://github.com/Tonnette/trusted-tradies/issues"
+  },
+  "homepage": "https://github.com/Tonnette/trusted-tradies"
+}

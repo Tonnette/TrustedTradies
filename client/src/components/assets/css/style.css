@@ -1,0 +1,301 @@
+* {
+    box-sizing: border-box;
+    border-radius: 0 !important;
+}
+/*star style*/
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #c59b08;
+}
+
+#movie-input {
+    margin-left: 5px;
+
+}
+
+.searchDiv{
+    padding: 0px !important;
+}
+/*star style end*/
+
+.myLogo {
+    font-family: 'Amatic SC', cursive;
+    font-size: 40px;
+}
+
+.myNav {
+    padding: 15px;
+    height: 80px !important;
+}
+
+.qualityText {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    font-size: 60px;
+}
+
+.small {
+    display: none;
+}
+
+.welcomeText {
+    font-family: 'Caveat', cursive;
+    font-family: 'Open Sans Condensed', sans-serif;
+    padding: 0px;
+}
+
+.ProfileImage {
+    width: 350px;
+    height: 100%
+}
+
+.flip-card {
+    /* background-color: transparent; */
+    width: 1000px;
+    height: 200px;
+    position: relative
+    /* perspective: 1000px; */
+}
+
+.flip-card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+    transform-style: preserve-3d;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: white;
+    text-align: right;
+    padding: 10px 15px 0px 0px;
+    color: black;
+}
+
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ff8e1c;
+    color: white;
+    font-family: 'Amatic SC', cursive;
+    transform: rotateY(180deg);
+}
+
+.huge {
+    font-size: 17px;
+    font-family: 'Montserrat', sans-serif, Arial, Helvetica, sans-serif;
+}
+
+.buttonText {
+    font-family: 'Montserrat', sans-serif, Arial, Helvetica, sans-serif;
+}
+
+.imageCol {
+    padding: 0px !important;
+}
+
+.tradieImage {
+    width: 220px;
+    height: 160px;
+}
+
+.orangeToast {
+    background-color: #ff8000 !important;
+    color: black;
+    font-weight: 700;
+    font-size: larger;
+    text-align: center !important;
+}
+
+.textbox {
+    padding-top: 20px;
+}
+
+.textboxProfile {
+    padding-top: 20px;
+    text-align: left;
+    padding-left: 15px;
+    font-family: 'Montserrat', sans-serif, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.headerProfile {
+    font-family: 'Amatic SC', cursive !important;
+    font-size: 30px !important;
+    background-color: #00babd !important;
+    /* margin-bottom: 20px; */
+    width: 100%;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.header {
+    font-family: 'Amatic SC', cursive !important;
+    font-size: 30px !important;
+    background-color: #00babd !important;
+    margin-bottom: 20px;
+    width: 50%;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.searchDiv {
+    padding: 25px;
+    left: 50%;
+    top: 50%;
+    float: center !important;
+}
+
+.myImage {
+    width: 50%;
+    padding: 0px, 0x, 0px, 0px !important;
+    margin-right: 15px;
+    margin-left: 0px !important;
+    background-color: black;
+}
+
+.tradie-head {
+    width: 100%;
+    padding: 0px, 0x, 0px, 0px !important;
+    margin-left: 0px !important;
+    background-color: black;
+}
+
+.card {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.myRow .myCol {
+    text-align: center !important;
+    float: center !important;
+}
+
+@media (max-width: 415px) {
+    .myImage {
+        width: 100%;
+        margin-left: 25px;
+    }
+    .myContainer {
+        max-width: 100%;
+        text-align: center;
+    }
+    .ProfileImage {
+        width: 220px;
+        margin-left: 25px;
+    }
+    .tradieImage{
+        margin-left: 50px;
+    }
+
+    .findText {
+        font-size: 20px;
+        font-family: 'Montserrat', sans-serif, Arial, Helvetica, sans-serif;
+    }
+    .qualityText {
+        font-size: 20px;
+    }
+    .textbox {
+        visibility: hidden;
+    }
+    .header {
+        font-family: 'Montserrat', sans-serif, Arial, Helvetica, sans-serif !important;
+        font-size: 12px !important;
+        background-color: #00babd !important;
+        margin-bottom: 20px;
+        width: 50%;
+        color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        text-align: left;
+    }
+
+
+
+}
+
+@media (max-width: 800px) {
+    .qualityText {
+        font-size: 36px;
+    }
+
+}
+/* 
+@media (max-width: 1000px) {
+    .flip-card-front {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        background-color: white;
+        text-align: center;
+        padding: 10px 15px 0px 0px;
+        color: black;
+    }
+}
+
+@media (max-width: 1450px) {
+    .myCard {
+        color: black;
+        width: 100%;
+        display: inline-block !important;
+    }
+    .myContainer {
+        max-width: 100%;
+        text-align: center;
+    }
+    .huge {
+        font-size: 17px
+    } */ 
+
+
