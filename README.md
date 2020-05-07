@@ -74,11 +74,6 @@ Npm used:
 - Multer
 - Multer s3
 
-
-[Back to the top](#Project-2)
-
-
-
 ## Directions for Future Development
 
 I would like to add the ability for the tradie to upload multiple photos to their profile so they can advertise their work even better. 
@@ -99,4 +94,4 @@ Heroku deployed
 https://vast-chamber-54344.herokuapp.com/
 
 Github Repo!
-https://github.com/Tonnette/Project2
+https://github.com/Tonnette/TrustedTradies
