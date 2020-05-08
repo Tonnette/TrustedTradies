@@ -18,10 +18,10 @@ export const ReactExample = ({ name, value, handleChange }) => (
   <select name={name} value={value} onChange={handleChange}>
     <option value="" disabled selected>What's your trade?</option>
     <option value="Carpenter">Carpenter</option>
-    <option value="Builder">Builde</option>
+    <option value="Builder">Builder</option>
     <option value="Electrician">Electrician</option>
     <option value="Plumber">Plumber</option>
-    <option value="Bricklayer">Bricklaye</option>
+    <option value="Bricklayer">Bricklayer</option>
     <option value="Tiler">Tiler</option>
   </select>
 )
