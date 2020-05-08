@@ -6,11 +6,30 @@ import 'materialize-css';
 import M from "materialize-css";
 import "../assets/css/style.css"
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import Head from "../Head";
+
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('select');
+  M.FormSelect.init(elems);
+});
+
+export const ReactExample = ({ name, value, handleChange }) => (
+  <select name={name} value={value} onChange={handleChange}>
+    <option value="" disabled selected>What's your trade?</option>
+    <option value="Carpenter">Carpenter</option>
+    <option value="Builder">Builde</option>
+    <option value="Electrician">Electrician</option>
+    <option value="Plumber">Plumber</option>
+    <option value="Bricklayer">Bricklaye</option>
+    <option value="Tiler">Tiler</option>
+  </select>
+)
 
 class TradieRegister extends Component {
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       selectedFile: null,
       selectedFiles: null,
@@ -111,6 +130,7 @@ class TradieRegister extends Component {
 
   submitToDatabase = (event) => {
     event.preventDefault();
+
     const newTradie = {
       imageName: this.state.imageName,
       imageLocation: this.state.imageLocation,
@@ -149,6 +169,15 @@ class TradieRegister extends Component {
       })
 
 
+    if (this.state.type.legnth === 0) {
+      M.toast({
+        html: "<div class='message'>please select a trade</div>",
+        classes: 'orangeToast',
+        displayLength: 3500,
+      })
+      return;
+
+    }
     if (!newTradie.email || !newTradie.password) {
       M.toast({
         html: "<div class='message'>email and password cant be blank</div>",
@@ -243,16 +272,28 @@ class TradieRegister extends Component {
     this.setState({ [e.target.id]: e.target.value });
   };
 
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+    console.log("hey " + this.state.type)
+  }
+
+
+  saveItem = () => {
+    const item = {};
+    item.type = this.state.type;
+    // do more with item object as required (e.g. save to database)
+  }
+
+
+
   render() {
     // console.log(this.state)
     return (
       <div>
-
-        <div>
-          <NavbarNonMembers />
-          <Head />
-          {/* For Alert box*/}
-          <div id="oc-alert-container"></div>
+        <NavbarNonMembers />
+        <Head />
+        {/* For Alert box*/}
+        <div id="oc-alert-container">
 
           {this.state.showRegister ?
             <div className="row">
@@ -265,17 +306,38 @@ class TradieRegister extends Component {
                     Already have an account? <Link to="/login-tradie">Log in</Link>
                   </p>
                 </div>
-                <form noValidate encType="multipart/form-data" onSubmit={this.onSubmit}>
+                <Form noValidate encType="multipart/form-data" onSubmit={this.onSubmit}>
 
-                  <p className="grey-text text-darken-1">Please upload an image for your profile</p>
-
-                  <input type="file" style={{ paddingBottom: "11.250px" }} onChange={this.singleFileChangedHandler} />
-                  <div className="mt-1" style={{ paddingBottom: "11.250px" }} >
-                    <button className="btn btn-info" onClick={this.singleFileUploadHandler}>Select File</button>
+                <ReactExample name="type" value={this.state.type} handleChange={this.handleChange}/>
+                  {/* <div class="input-field col s8">
+                    <select>
+                      <option value="" disabled selected>What's your trade?</option>
+                      <option value={this.state.type} id="type" name="type"  onChange={this.clickOnOption}>
+                        Electrician</option>
+                      <option value="Carpenter"onChange={this.onChange}> Carpenter</option>
+                      <option value="Plumber" onChange={this.onChange}> Plumber</option>
+                      <option value="Cabinet Maker" onChange={this.onChange}>Cabinet Maker</option>
+                      <option value="Builder" onChange={this.onChange}>Builder</option>
+                    </select>
+                
+                    <label>Trade</label>
                   </div>
+                  <div className="col s12" style={{ paddingBottom: "11.250px" }} >
+                        <button className="btn btn-info" onClick={this.clickOnOption}>register</button>
+                      </div> */}
 
+                  <div class="input-field col s8">
+                    <p className="grey-text text-darken-1">Please upload an image for your profile</p>
+
+                    <input type="file" style={{ paddingBottom: "11.250px" }} onChange={this.singleFileChangedHandler} />
+                    <div className="mt-1" style={{ paddingBottom: "11.250px" }} >
+                      <button className="btn btn-info" onClick={this.singleFileUploadHandler}>Select File</button>
+                    </div>
+                  </div>
                   {this.state.showform ?
+
                     <div className="startForm">
+
                       <div className="input-field col s12">
                         <input
                           onChange={this.onChange}
@@ -316,7 +378,7 @@ class TradieRegister extends Component {
                         />
                         <label htmlFor="password2">Confirm Password</label>
                       </div>
-                      <div className="input-field col s12">
+                      {/* <div className="input-field col s12">
                         <input
                           onChange={this.onChange}
                           value={this.state.type}
@@ -325,7 +387,9 @@ class TradieRegister extends Component {
                           type="text"
                         />
                         <label htmlFor="type">What's your trade?</label>
-                      </div>
+                      </div> */}
+
+
                       <div className="input-field col s12">
                         <input
                           onChange={this.onChange}
@@ -355,7 +419,7 @@ class TradieRegister extends Component {
                           id="rates"
                           type="text"
                         />
-                        <label htmlFor="rates">Rates per</label>
+                        <label htmlFor="rates">Rates per hour</label>
                       </div>
                       <div className="input-field col s12">
                         <input
@@ -368,15 +432,20 @@ class TradieRegister extends Component {
                         <label htmlFor="description">Describe your business</label>
                       </div>
 
-                      <div className="mt-1" style={{ paddingBottom: "11.250px" }} >
+                      <div className="col s12" style={{ paddingBottom: "11.250px" }} >
                         <button className="btn btn-info" onClick={this.submitToDatabase}>Upload!</button>
                       </div>
+
+
+
+
+
 
                     </div>
                     : null
                   }
 
-                </form>
+                </Form>
               </div>
             </div>
             : null
