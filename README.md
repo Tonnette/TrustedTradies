@@ -48,7 +48,7 @@ The user can also click logout to log out and return to home page.
 - React
 - Node.js
 - MongoDB
-- MVC structure
+- MERN Stack
 - CRUD
 - AJAX
 - Heroku
@@ -67,8 +67,6 @@ Npm used:
 - JWT
 - Body-Parser
 - Cors
-- Bcryptjs
-- Bcryptjs
 - Bcryptjs
 - Path
 - Multer
