@@ -31,7 +31,7 @@ function MemberCard(props) {
                     </div>
                   </div>
                   <div class="flip-card-back">
-                    <h4 className="findText">Find out more / Leave a review... </h4>
+                    <h4 className="findText">Find out more... </h4>
                     <div className="card-action">
                       <button className="waves-effect waves-light btn-small" style={{ backgroundColor: "#02c2d4" }} value={item.id} defaultChecked={false}
                         onClick={props.clickOnCard.bind(props, item)}>Click here...</button>
