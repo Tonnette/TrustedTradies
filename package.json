@@ -52,7 +52,7 @@
     "path": "^0.12.7",
     "react-bootstrap": "^1.0.1",
     "react-materialize": "^3.8.10",
-    "validator": "^13.0.0"
+    "validator": "^13.7.0"
   },
   "repository": {
     "type": "git",
